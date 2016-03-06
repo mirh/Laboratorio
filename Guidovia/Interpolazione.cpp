@@ -6,16 +6,15 @@
 #include <math.h>
 using namespace std;
 
-ifstream leggi("152.txt");
-ofstream scrivi("output.txt");
 bool controllo(string x);
-
 struct dato {
 	float valore;
 	float errore;
 };
 
-int main() {						//riga di comando
+int main (int argc, char *argv[]) {
+	ifstream leggi(argv[1]);
+	ofstream scrivi("output.txt");
 	
 	if(!leggi.is_open()) {
 		cout << "Impossibile aprire il file" << endl;
