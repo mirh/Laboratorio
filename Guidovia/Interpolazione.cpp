@@ -53,7 +53,7 @@ int main (int argc, char *argv[]) {
 	}
 	
 	//Interpolo
-	float x1, y1, x2, xy=0;
+	float x1, y1, x2, xy, e=0;
 	for (int k = 0; k < tempo.size(); k++){
 		x1=x1+tempo[k]*tempo[k];
 		y1=y1+veloc[k].valore;
@@ -64,11 +64,21 @@ int main (int argc, char *argv[]) {
 	float a=(x1*y1-x2*xy)/delta;
 	float b=(xy*tempo.size()-x2*y1)/delta;
 	
+	for (int k = 0; k < tempo.size(); k++){
+		e=((a+b*tempo[k])-veloc[k].valore);
+		e=e*e;
+	}
+	e=sqrt(e/(tempo.size()-2));
+	float eA=e*sqrt(x1/delta);
+	float eB=e*sqrt(tempo.size()/delta);
+	
 	scrivi << "Tempo (s)\tVelocità (m/s)\t Errore velocità (m/s)" << endl;	//da controllare
 	for (int k = 0; k < tempo.size(); k++){
 		scrivi << tempo[k] << "\t" << veloc[k].valore << "\t" << veloc[k].errore << endl;
 		}
-	scrivi << "a è " << a << ", b è " << b ;
+	scrivi << "a è " << a << ", b è " << b << endl;
+	scrivi << "Dev y è " << e << endl;
+	scrivi << "Dev.std di a è " << eA << " e dev.std di b è " << eB;
 	return 0;
 }
 
