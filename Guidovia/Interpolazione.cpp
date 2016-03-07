@@ -53,20 +53,19 @@ int main (int argc, char *argv[]) {
 	}
 	
 	//Interpolo
-	float x1, y1, x2, xy, e=0;
+	float x1=0, y1=0, x2=0, xy=0, e=0;
 	for (int k = 0; k < tempo.size(); k++){
-		x1=x1+tempo[k]*tempo[k];
-		y1=y1+veloc[k].valore;
-		x2=x2+tempo[k];
-		xy=xy+tempo[k]*veloc[k].valore;
+		x1+=tempo[k]*tempo[k];
+		y1+=veloc[k].valore;
+		x2+=tempo[k];
+		xy+=tempo[k]*veloc[k].valore;
 	}
 	float delta=tempo.size()*x1-x2*x2;
 	float a=(x1*y1-x2*xy)/delta;
 	float b=(xy*tempo.size()-x2*y1)/delta;
 	
 	for (int k = 0; k < tempo.size(); k++){
-		e=((a+b*tempo[k])-veloc[k].valore);
-		e=e*e;
+		e+=((a+b*tempo[k])-veloc[k].valore)*((a+b*tempo[k])-veloc[k].valore);
 	}
 	e=sqrt(e/(tempo.size()-2));
 	float eA=e*sqrt(x1/delta);
