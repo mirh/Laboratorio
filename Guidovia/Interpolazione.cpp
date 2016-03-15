@@ -32,14 +32,13 @@ int main (int argc, char *argv[]) {
 		if (controllo(temp)) break;
 		i++;
 		istringstream iss(temp);
-    	float a;
-    	iss >> a;
+		float a;
+		iss >> a;
 		tempo.push_back(a);
 	}
 	
 	while(i>0) {
 		getline(leggi, temp); //scarto la seconda "riga titolo"
-		if (controllo(temp)) break;
 		istringstream iss(temp);
 		float a, c;
 		iss >> a >> c >> c;
@@ -88,5 +87,5 @@ bool controllo(string x){
 	}
 }
 
-//http://stackoverflow.com/questions/7868936/read-file-line-by-line
+
 //http://en.cppreference.com/w/cpp/string/byte/isdigit http://www.cprogramming.com/tutorial/lesson2.html
