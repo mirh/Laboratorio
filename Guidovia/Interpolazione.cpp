@@ -71,9 +71,9 @@ int main (int argc, char *argv[]) {
 	float eA=e*sqrt(x1/delta);
 	float eB=e*sqrt(tempo.size()/delta);
 	
-	scrivi << "Tempo (s)\tVelocità (m/s)\t Errore velocità (m/s)" << endl;	//da controllare
+	scrivi << "Tempo (s) Velocità (m/s) Errore velocità (m/s)" << endl;
 	for (int k = 0; k < tempo.size(); k++){
-		scrivi << tempo[k] << "\t" << veloc[k].valore << "\t" << veloc[k].errore << endl;
+		scrivi << tempo[k] << "   " << veloc[k].valore << "       " << veloc[k].errore << endl;
 		}
 	scrivi << "a è " << a << ", b è " << b << endl;
 	scrivi << "Dev y è " << e << endl;
