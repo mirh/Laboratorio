@@ -38,7 +38,7 @@ int main (int argc, char *argv[]) {
 	}
 	
 	while(i>0) {
-		getline(leggi, temp); //scarto la seconda "riga titolo"
+		getline(leggi, temp);
 		istringstream iss(temp);
 		float a, c;
 		iss >> a >> c >> c;
@@ -82,10 +82,7 @@ int main (int argc, char *argv[]) {
 
 bool controllo(string x){	
 	for(auto w:x) {						
-		if(isalpha(w) || (isspace(w) && !isblank(w))) return 1;   //da migliorare
+		if(isalpha(w) || (isspace(w) && !isblank(w))) return 1;
 		else return 0;
 	}
 }
-
-
-//http://en.cppreference.com/w/cpp/string/byte/isdigit http://www.cprogramming.com/tutorial/lesson2.html
