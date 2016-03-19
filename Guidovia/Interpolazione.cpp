@@ -82,7 +82,7 @@ int main (int argc, char *argv[]) {
 
 bool controllo(string x){	
 	for(auto w:x) {						
-		if(isalpha(w) || (isspace(w) && !isblank(w))) return 1;
-		else return 0;
+		if(!isdigit(w) && !isblank(w) && w!='.') return 1;
 	}
+	return 0;
 }
